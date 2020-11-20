@@ -1,4 +1,10 @@
 FROM ubuntu:18.04
+
+ENV CATALINA_HOME /usr/share/tomcat9
+ENV PATH $CATALINA_HOME/bin:$PATH
+RUN mkdir -p "$CATALINA_HOME"
+WORKDIR $CATALINA_HOME
+
 RUN apt update
 RUN apt install apt-utils -y
 RUN apt install default-jdk -y
